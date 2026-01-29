@@ -211,7 +211,7 @@ class MyNotificationSectionState extends State<MyNotificationSection> {
           iOS: DarwinInitializationSettings(),
         );
 
-    await notificationsPlugin.initialize(initializationSettings);
+    await notificationsPlugin.initialize(settings: initializationSettings);
 
     final androidPlugin = notificationsPlugin
         .resolvePlatformSpecificImplementation<
@@ -251,10 +251,10 @@ class MyNotificationSectionState extends State<MyNotificationSection> {
     required String body,
   }) async {
     await notificationsPlugin.show(
-      id,
-      title,
-      body,
-      const NotificationDetails(
+      id: id,
+      title: title,
+      body: body,
+      notificationDetails: NotificationDetails(
         android: AndroidNotificationDetails(
           'instant_notification_channel_id',
           'Instant Notifications',
